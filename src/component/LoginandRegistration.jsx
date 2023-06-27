@@ -35,7 +35,7 @@ const LoginandRegistration = () => {
         setchange(true);
       }
     } else {
-      toast.warn("Insert Details", {
+      toast.warn("Invalid Details", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
