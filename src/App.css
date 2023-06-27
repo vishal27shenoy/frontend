@@ -1,0 +1,26 @@
+.parent_container{
+  display: grid;
+  grid-template-areas: 
+    'header header'
+    'sidebar main'
+  ;
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 1fr auto;
+  /* transition: 0.5s ease-in-out; */
+  height: 100vh;
+}
+
+.app_navbar_container{
+  grid-area: header;
+}
+
+.app_sidebar_container{
+  grid-area: sidebar;
+}
+
+.app_action_container{
+  grid-area: main;
+}
+.app_action_container{
+  height: calc(100vh - 70px);
+}

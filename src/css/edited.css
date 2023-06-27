@@ -1,0 +1,52 @@
+.display_edited_item_in_cart{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.edited_card_contaner{
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 180px;
+    width: 300px;
+    border: solid gray 1px;
+}
+.edited_title{
+    height: 30px;
+}
+.edited_description{
+    height: 90px;
+    overflow-y: scroll;
+}
+.delete_btn{
+    height: 40px;
+    width: 40px;
+    margin-inline: auto;
+    display: grid;
+    place-content: center;
+
+ 
+}
+.delete_btn:hover{
+    border-radius: 50%;
+    background-color: rgb(223, 217, 217);
+}
+.delete_btn_and_date_container{
+    display: flex;
+    align-items: center;
+}
+.display_delete_in_grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}

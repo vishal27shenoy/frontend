@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+.card_container{
+    height: 200px;
+    background-color: #f2f2f2;;
+    border-radius: 8px;
+    width: 300px;
+    border: solid gray 1px;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card_title{
+    color: gray;
+}
+.description{
+    height: 100%;
+    overflow-x:scroll ;
+}
+::-webkit-scrollbar{
+    display: none;
+    width: 0px;
+}
+.card_action_container{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+.card_action_options{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 20px;
+}
+.date_container{
+    font-family:monospace;
+}
+.icon_circle{
+    height: 30px;
+    width: 30px;
+    display: grid;
+    place-content: center;
+}
+.icon_circle:hover{
+    border-radius: 50%;
+    background-color: rgb(188, 184, 184);
+    display: grid;
+    place-content: center;
+    font-size: small;
+}

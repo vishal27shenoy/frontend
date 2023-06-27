@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+.login_and_registration_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login_container,.registration_container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 500px;
+    background-color: #f2f2f2;;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.login_container > input,.registration_container>input{
+    font-family: 'Josefin Sans', sans-serif;
+    height: 40px;
+    width: 80%;
+    border-radius: 8px;
+    border: solid gray 1px;
+    outline: none;
+    text-indent: 20px;
+}
+.login_container > input:focus,.registration_container> input:focus{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.login_container > button,.registration_container > button{
+    height: 40px;
+    width: 80%;
+    border-radius: 8px;
+    border: solid gray 1px;
+    background-color: rgb(91, 128, 247);
+    outline: none;
+    text-indent: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    border: none;
+}
+.login_span,.registration_span{
+    font-size: smaller;
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.login_span:after{
+    content: "Register";
+    color: blue;
+}
+.registration_span:after{
+    content: "Login";
+    color: blue;
+}
