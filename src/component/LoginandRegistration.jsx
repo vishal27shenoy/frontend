@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import "../css/regandlogin.css";
 import AuthContext, { UserContext } from "../context/Context";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+
 const LoginandRegistration = () => {
   const { auth, setAuth } = useContext(UserContext);
   const [change, setchange] = useState(true);
@@ -44,6 +46,13 @@ const LoginandRegistration = () => {
       );
       if (response.status === 200) {
         console.log(response);
+        const str = JSON.stringify({
+          id: response.data.payload._id,
+          username: response.data.payload.username,
+          email: response.data.payload.email,
+          token: response.data.token,
+        });
+        Cookies.set("token", str, { expires: 7 });
         setAuth({
           id: response.data.payload._id,
           username: response.data.payload.username,
@@ -56,6 +65,11 @@ const LoginandRegistration = () => {
     }
   };
   console.log(auth);
+  useEffect(() => {
+    if (Cookies.get("token")) {
+      navigate("/home");
+    }
+  }, []);
   return (
     <div className="login_and_registration_container">
       {change ? (

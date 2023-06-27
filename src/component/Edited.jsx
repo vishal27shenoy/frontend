@@ -4,7 +4,7 @@ import { UserContext } from "../context/Context";
 import React, { useContext, useEffect, useState } from "react";
 import { Card } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-const Edited = () => {
+const Edited = ({ search }) => {
   const [displaydata, setDisplayData] = useState(false);
   const [notes, setNotes] = useState([]);
   const { auth, setAuth } = useContext(UserContext);
@@ -35,14 +35,22 @@ const Edited = () => {
   useEffect(() => {
     getData();
   }, [displaydata]);
+
+  useEffect(() => {}, [search]);
   return (
     <div className="display_edited_item_in_cart">
       {notes &&
         notes.map((item) => {
-          if (item.delFlag == false) {
+          if (
+            item.delFlag == false &&
+            item.oldTitle.toLowerCase().includes(search.toLowerCase())
+          ) {
             return (
               <div className="edited_card_contaner" id={item._id}>
-                <div className="edited_title">Title : {item.oldTitle}</div>
+                <div className="edited_title">
+                  Old Title : {item.oldTitle} <br /> New : {item.title}
+                </div>
+                <br />
                 <div className="edited_description">
                   Description : {item.oldDescription}
                 </div>

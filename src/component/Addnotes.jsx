@@ -10,7 +10,7 @@ import { Notes } from "@mui/icons-material";
 import { UserContext } from "../context/Context";
 
 import axios from "axios";
-const Addnotes = () => {
+const Addnotes = ({ search }) => {
   const [show, setShow] = useState(false);
   const [notes, setNotes] = useState([]);
   const { auth, setAuth } = useContext(UserContext);
@@ -23,6 +23,17 @@ const Addnotes = () => {
     description: "",
     userid: auth.id,
   });
+
+  useEffect(() => {
+    // setNotes(
+    //   notes.filter((item) =>
+    //     item.title.toLowerCase().includes(search.toLowerCase())
+    //   )
+    // );
+    // if (search === "") {
+    //   getData();
+    // }
+  }, [search]);
   const [editId, setEditId] = useState("");
   const handleData = async () => {
     console.log(checkedit);
@@ -56,6 +67,7 @@ const Addnotes = () => {
     setNotes(response.data);
     console.log(response);
   };
+
   useEffect(() => {
     getData();
   }, [displaydata]);
@@ -118,7 +130,10 @@ const Addnotes = () => {
       <div className="card_displaying_in_grid">
         {notes &&
           notes.map((item, index) => {
-            if (item.delFlag == false)
+            if (
+              item.delFlag == false &&
+              item.title.toLowerCase().includes(search.toLowerCase())
+            )
               return (
                 <Card
                   title={item.title}

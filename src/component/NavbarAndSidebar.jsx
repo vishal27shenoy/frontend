@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
 import Addnotes from "./Addnotes";
 import Edited from "./Edited";
 import Deleted from "./Deleted";
@@ -12,8 +13,9 @@ import axios from "axios";
 import { UserContext } from "../context/Context";
 const NavbarAndSidebar = () => {
   const { auth, setAuth } = useContext(UserContext);
-  const [width, setWidth] = useState(false);
+  const [width, setWidth] = useState(true);
   const [action, setaction] = useState(1);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     AutoDel();
   }, []);
@@ -28,7 +30,14 @@ const NavbarAndSidebar = () => {
           <MenuIcon />
         </div>
         <div className="search_icon_container">
-          <input type="text" name="" id="" placeholder="Search" />
+          <input
+            type="text"
+            name="search"
+            id="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search"
+          />
           <SearchIcon />
         </div>
         <div></div>
@@ -41,29 +50,81 @@ const NavbarAndSidebar = () => {
           <div
             className={` sidebar_btn ${width ? "same" : "changewidth"}`}
             onClick={() => setaction(1)}
+            style={
+              action == 1
+                ? {
+                    width: !width ? "50px" : "100%",
+                    height: "50px",
+                    backgroundColor: "#feefc3",
+                    marginInline: !width ? "auto" : "",
+                    borderRadius: !width ? "50%" : "",
+                    display: !width ? "grid" : "flex",
+                    placeContent: "center",
+                    paddingInline: "12.5px",
+                    overflow: "hidden",
+                  }
+                : {}
+            }
           >
             <DescriptionOutlinedIcon />
-            {/* {width ? "Notes" : ""} */} Notes
+            {/* {width ? "Notes" : ""} */}
+            <p style={{ display: width ? "" : "none" }}> Notes</p>
           </div>
           <div
             className={` sidebar_btn ${width ? "same" : "changewidth"}`}
             onClick={() => setaction(2)}
+            style={
+              action == 2
+                ? {
+                    width: !width ? "50px" : "100%",
+                    height: "50px",
+                    backgroundColor: "#feefc3",
+                    marginInline: !width ? "auto" : "",
+                    borderRadius: !width ? "50%" : "",
+                    display: !width ? "grid" : "flex",
+                    placeContent: "center",
+                    paddingInline: "12.5px",
+                    overflow: "hidden",
+                  }
+                : {}
+            }
           >
-            <ModeEditOutlineOutlinedIcon />
+            <HistoryToggleOffIcon />
             {/* {width ? "Edit" : ""} */}
-            Edited
+            <p style={{ display: width ? "" : "none" }}>History</p>
           </div>
           <div
             className={` sidebar_btn ${width ? "same" : "changewidth"}`}
             onClick={() => setaction(3)}
+            style={
+              action == 3
+                ? {
+                    width: !width ? "50px" : "100%",
+                    height: "50px",
+                    backgroundColor: "#feefc3",
+                    marginInline: !width ? "auto" : "",
+                    borderRadius: !width ? "50%" : "",
+                    display: !width ? "grid" : "flex",
+                    placeContent: "center",
+                    paddingInline: "12.5px",
+                    overflow: "hidden",
+                  }
+                : {}
+            }
           >
             <DeleteOutlineOutlinedIcon />
             {/* {width ? "Delete" : ""} */}
-            Deleted
+            <p style={{ display: width ? "" : "none" }}>Deleted</p>
           </div>
         </div>
         <div className="action_container_container">
-          {action == 1 ? <Addnotes /> : action == 2 ? <Edited /> : <Deleted />}
+          {action == 1 ? (
+            <Addnotes search={search} />
+          ) : action == 2 ? (
+            <Edited search={search} />
+          ) : (
+            <Deleted search={search} />
+          )}
         </div>
       </div>
     </div>

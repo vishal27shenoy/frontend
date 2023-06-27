@@ -39,6 +39,18 @@
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
 }
+.sidebar_btn{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    line-height: 50%;
+}
+.sidebar_btn p{
+    height: 100%;
+    display: grid;
+    place-content: center;
+    margin-bottom: 0%;
+}
 .sidebar_and_action_container{
     display: flex;
 }
@@ -52,7 +64,7 @@
     padding-top: 20px;
     gap: 20px;
     font-family: 'Josefin Sans', sans-serif;
-
+    
     overflow: hidden;
 }
 .sidebar_containers > .same{
@@ -83,18 +95,24 @@
 
 .sidebar_containers > .same:hover{
     background-color: #feefc3;
-   
-    aspect-ratio: 1/1;
+    /* padding-inline: 12.5px; */
+    /* margin-left: 12.5px; */
+    /* aspect-ratio: 1/1; */
 }
-
-.sidebar_containers > .changewidth:hover{
+.changewidth:hover{
     border-radius: 50%;
     background-color: #feefc3;
+    padding-left: 0px;
     height: 50px;
-    width: calc(100% - 25px);
+    width: 50px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: calc(100% - 25px); */
+    /* padding-inline: 12.5px; */
     /* width: 50px; */
-    padding-inline: 12.5px;
-    margin-left: 12.5px;
+    /* margin-left: 12.5px; */
     /* margin */
    
    /* margin-left: 25px; */
@@ -102,4 +120,9 @@
 .action_container_container{
     width: 100%;
     height: calc(100vh - 70px);
+}
+.sidebarhovered{
+    border-radius: 50%;
+    background-color: #feefc3;
+    height: 50px;
 }
