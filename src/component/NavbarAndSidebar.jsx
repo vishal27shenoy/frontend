@@ -6,22 +6,33 @@ import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import HistoryToggleOffIcon from "@mui/icons-material/HistoryToggleOff";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Addnotes from "./Addnotes";
 import Edited from "./Edited";
 import Deleted from "./Deleted";
 import axios from "axios";
 import { UserContext } from "../context/Context";
+import { Cookie } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 const NavbarAndSidebar = () => {
   const { auth, setAuth } = useContext(UserContext);
   const [width, setWidth] = useState(true);
   const [action, setaction] = useState(1);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     AutoDel();
   }, []);
+  const handleLogout = () => {
+    Cookies.remove("token");
+    navigate("/");
+  };
   const AutoDel = async () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
-    const response = await axios.delete("http://localhost:5000/api/noteDel");
+    const response = await axios.delete(
+      "https://notesapp-ip0q.onrender.com/api/noteDel"
+    );
   };
   return (
     <div className="navbar_sidebar_container">
@@ -115,6 +126,29 @@ const NavbarAndSidebar = () => {
             <DeleteOutlineOutlinedIcon />
             {/* {width ? "Delete" : ""} */}
             <p style={{ display: width ? "" : "none" }}>Deleted</p>
+          </div>
+          <div
+            className={` sidebar_btn ${width ? "same" : "changewidth"}`}
+            onClick={() => handleLogout()}
+            style={
+              action == 4
+                ? {
+                    width: !width ? "50px" : "100%",
+                    height: "50px",
+                    backgroundColor: "#feefc3",
+                    marginInline: !width ? "auto" : "",
+                    borderRadius: !width ? "50%" : "",
+                    display: !width ? "grid" : "flex",
+                    placeContent: "center",
+                    paddingInline: "12.5px",
+                    overflow: "hidden",
+                  }
+                : {}
+            }
+          >
+            <LogoutIcon />
+            {/* {width ? "Notes" : ""} */}
+            <p style={{ display: width ? "" : "none" }}> Logout</p>
           </div>
         </div>
         <div className="action_container_container">

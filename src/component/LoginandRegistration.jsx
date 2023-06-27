@@ -28,7 +28,7 @@ const LoginandRegistration = () => {
       delete regdata.confirmPassword;
       console.log(regdata);
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://notesapp-ip0q.onrender.com/api/auth/register",
         regdata
       );
       if (response.status === 200) {
@@ -41,7 +41,7 @@ const LoginandRegistration = () => {
 
     if (logdata.email && logdata.password) {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://notesapp-ip0q.onrender.com/api/auth/login",
         logdata
       );
       if (response.status === 200) {

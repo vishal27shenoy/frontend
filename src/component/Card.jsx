@@ -25,7 +25,7 @@ const Card = ({
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
     console.log(nid);
     const response = await axios.delete(
-      `http://localhost:5000/api/note/${nid}`
+      `https://notesapp-ip0q.onrender.com/api/note/${nid}`
     );
     if (response.status === 204) {
       console.log(response);
@@ -44,7 +44,7 @@ const Card = ({
     checkEditing(true);
     handleEedit(true);
     // const response = await axios.put(
-    //   `http://localhost:5000/api/note/${eid}`,
+    //   `https://notesapp-ip0q.onrender.com/api/note/${eid}`,
     //   data
     // );
   };

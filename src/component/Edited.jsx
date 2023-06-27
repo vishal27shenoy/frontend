@@ -11,7 +11,7 @@ const Edited = ({ search }) => {
   const getData = async () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
     const response = await axios.get(
-      "http://localhost:5000/api/getNote/updated",
+      "https://notesapp-ip0q.onrender.com/api/getNote/updated",
       {
         userid: auth.id,
       }
@@ -23,7 +23,7 @@ const Edited = ({ search }) => {
     console.log(ide);
     const delElem = document.getElementById(`${ide}`);
     const response = await axios.delete(
-      `http://localhost:5000/api/note/${ide}`,
+      `https://notesapp-ip0q.onrender.com/api/note/${ide}`,
       {
         userid: auth.id,
       }
@@ -46,7 +46,11 @@ const Edited = ({ search }) => {
             item.oldTitle.toLowerCase().includes(search.toLowerCase())
           ) {
             return (
-              <div className="edited_card_contaner" id={item._id}>
+              <div
+                className="edited_card_contaner"
+                id={item._id}
+                style={{ backgroundColor: "#f2f2f2" }}
+              >
                 <div className="edited_title">
                   Old Title : {item.oldTitle} <br /> New : {item.title}
                 </div>

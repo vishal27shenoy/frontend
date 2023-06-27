@@ -40,17 +40,18 @@ const Addnotes = ({ search }) => {
     if (checkedit) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
       const response = await axios.put(
-        `http://localhost:5000/api/note/${editId}`,
+        `https://notesapp-ip0q.onrender.com/api/note/${editId}`,
         data
       );
       console.log(response);
       setDisplayData(!displaydata);
+      Setcheckedit(false);
       // if(response.) {}
     } else if (data.title && data.description) {
       console.log(data);
       axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
       const response = await axios.post(
-        "http://localhost:5000/api/note/new",
+        "https://notesapp-ip0q.onrender.com/api/note/new",
         data
       );
       console.log(response);
@@ -61,9 +62,12 @@ const Addnotes = ({ search }) => {
 
   const getData = async () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
-    const response = await axios.get("http://localhost:5000/api/getNote/all", {
-      userid: auth.id,
-    });
+    const response = await axios.get(
+      "https://notesapp-ip0q.onrender.com/api/getNote/all",
+      {
+        userid: auth.id,
+      }
+    );
     setNotes(response.data);
     console.log(response);
   };

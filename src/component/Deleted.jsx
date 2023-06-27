@@ -10,7 +10,7 @@ const Deleted = ({ search }) => {
   const getData = async () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
     const response = await axios.get(
-      "http://localhost:5000/api/getNote/deleted",
+      "https://notesapp-ip0q.onrender.com/api/getNote/deleted",
       {
         userid: auth.id,
       }
@@ -20,14 +20,14 @@ const Deleted = ({ search }) => {
   const handleForceDelete = async (ide) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
     const response = await axios.delete(
-      `http://localhost:5000/api/note/forceDelete/${ide}`
+      `https://notesapp-ip0q.onrender.com/api/note/forceDelete/${ide}`
     );
     getData();
   };
   const handleRestore = async (ide) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${auth.token}`;
     const response = await axios.get(
-      `http://localhost:5000/api/note/restore/${ide}`
+      `https://notesapp-ip0q.onrender.com/api/note/restore/${ide}`
     );
     getData();
   };
@@ -45,7 +45,11 @@ const Deleted = ({ search }) => {
               item.title?.toLowerCase().includes(search.toLowerCase()))
           ) {
             return (
-              <div className="edited_card_contaner" id={item._id}>
+              <div
+                className="edited_card_contaner"
+                id={item._id}
+                style={{ backgroundColor: "#f2f2f2" }}
+              >
                 <div className="edited_title">Title : {item.title}</div>
                 <div className="edited_description">
                   Description : {item.description}
