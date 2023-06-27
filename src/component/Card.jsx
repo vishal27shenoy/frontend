@@ -6,7 +6,8 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import copy from "copy-to-clipboard";
 import axios from "axios";
 import { UserContext } from "../context/Context";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Card = ({
   title,
   description,
@@ -50,6 +51,7 @@ const Card = ({
   };
   const tocopy = () => {
     copy(description);
+    const notify = () => toast("Description Copied");
   };
   return (
     <div className="card_container">
