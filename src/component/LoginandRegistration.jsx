@@ -4,7 +4,8 @@ import "../css/regandlogin.css";
 import AuthContext, { UserContext } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const LoginandRegistration = () => {
   const { auth, setAuth } = useContext(UserContext);
   const [change, setchange] = useState(true);
