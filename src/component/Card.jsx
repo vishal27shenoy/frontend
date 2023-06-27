@@ -51,7 +51,7 @@ const Card = ({
   };
   const tocopy = () => {
     copy(description);
-    const notify = () => toast("Description Copied");
+    toast("Description Copied");
   };
   return (
     <div className="card_container">
