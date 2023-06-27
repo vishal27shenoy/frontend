@@ -34,6 +34,17 @@ const LoginandRegistration = () => {
       if (response.status === 200) {
         setchange(true);
       }
+    } else {
+      toast.warn("Insert Details", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   const handleLogin = async () => {
@@ -61,7 +72,28 @@ const LoginandRegistration = () => {
         });
         navigate("/home");
       } else {
+        toast.error("Invalid Credentials", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       }
+    } else {
+      toast.warn("Insert Details", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   };
   console.log(auth);
@@ -72,6 +104,20 @@ const LoginandRegistration = () => {
   }, []);
   return (
     <div className="login_and_registration_container">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
       {change ? (
         <div className="login_container">
           <input
@@ -121,7 +167,7 @@ const LoginandRegistration = () => {
               setRegdata({ ...regdata, confirmPassword: e.target.value })
             }
           />
-          <button onClick={() => handleRegistration()}>Registration</button>
+          <button onClick={() => handleRegistration()}>Register</button>
           <span
             className="registration_span"
             onClick={() => setchange(!change)}
