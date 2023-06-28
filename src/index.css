@@ -1,16 +1,8 @@
-@media (prefers-color-scheme: light){
   :root{
       /* --bg:#f2f2f2; */
       --bg:white;
       --txt:#161616;
   }
-}
-@media (prefers-color-scheme: dark){
-  :root{
-      --bg:#1c1b22;
-      --txt:#cccccc;
-  }
-}
 
 *{
   margin: 0%;
