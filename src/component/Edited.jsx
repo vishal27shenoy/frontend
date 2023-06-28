@@ -39,6 +39,11 @@ const Edited = ({ search }) => {
   useEffect(() => {}, [search]);
   return (
     <div className="display_edited_item_in_cart">
+      {notes.length == 0 ? (
+        <div className="mo_notes_display">No History Found</div>
+      ) : (
+        ""
+      )}
       {notes &&
         notes.map((item) => {
           if (
