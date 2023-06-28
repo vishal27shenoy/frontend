@@ -30,7 +30,6 @@
     row-gap: 5px; 
     flex-wrap: wrap;
     overflow-y: scroll;
-    gap: 2rem;
 }
 .mo_notes_display{
     height: 100%;
