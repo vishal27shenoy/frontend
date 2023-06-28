@@ -50,3 +50,12 @@
     padding: 10px;
     font-family: 'Josefin Sans', sans-serif;
 }
+.mo_notes_display{
+    height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: red;
+}
