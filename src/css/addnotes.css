@@ -26,12 +26,10 @@
     width: 100%;
     padding: 10px;
     padding-inline: auto;
-    /* display: grid;
+    /* /* display: grid; */
     grid-template-columns: repeat(4,1fr);
     column-gap: 5px;
-    row-gap: 5px; */
-    display: flex;
-    /* justify-content: center; */
+    row-gap: 5px; 
     flex-wrap: wrap;
     overflow-y: scroll;
     gap: 2rem;
