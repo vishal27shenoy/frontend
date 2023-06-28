@@ -52,10 +52,11 @@
 }
 .mo_notes_display{
     height: calc(100vh - 70px);
-    width: 100%;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    margin-inline: auto;
     color: red;
 }
