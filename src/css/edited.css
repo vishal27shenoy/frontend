@@ -53,6 +53,7 @@
     row-gap: 5px; 
     position: relative;
     font-family: 'Josefin Sans', sans-serif;
+    padding: 10px;
 }
 .mo_notes_display{
     height: fit-content;
