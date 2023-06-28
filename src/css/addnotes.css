@@ -36,3 +36,12 @@
     overflow-y: scroll;
     gap: 2rem;
 }
+.mo_notes_display{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: red;
+}

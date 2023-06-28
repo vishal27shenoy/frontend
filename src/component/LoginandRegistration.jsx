@@ -72,8 +72,19 @@ const LoginandRegistration = () => {
           token: response.data.token,
         });
         navigate("/home");
-      } else {
+      } else if (response.status === 401) {
         toast.error("Invalid Credentials", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else if (response.status === 500) {
+        toast.error("User does not exist", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

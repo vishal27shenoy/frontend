@@ -132,6 +132,11 @@ const Addnotes = ({ search }) => {
         </Modal.Footer>
       </Modal>
       <div className="card_displaying_in_grid">
+        {notes.length == 0 ? (
+          <div className="mo_notes_display">No Notes </div>
+        ) : (
+          ""
+        )}
         {notes &&
           notes.map((item, index) => {
             if (
